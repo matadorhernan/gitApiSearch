@@ -1,10 +1,11 @@
 import { ActionReducerMap } from '@ngrx/store';
-import * as FromGithubInformation from './GithubInformation/GithubInformation.reducer';
+import { UserInformation } from '../Models/User.model';
+import { GithubInformationReducer } from './GithubInformation/GithubInformation.reducer';
 
 export interface AppState {
-  GI: FromGithubInformation.State;
+  GI: UserInformation;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
-  GI: FromGithubInformation.GithubInformationReducer,
+  GI: GithubInformationReducer,
 };

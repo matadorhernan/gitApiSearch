@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { EMPTY, empty, of } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 import {
   catchError,
   debounceTime,
@@ -11,6 +13,8 @@ import {
 } from 'rxjs/operators';
 import { IUserInformation } from 'src/app/interfaces/UserInformatio.interface';
 import { UserInformation } from 'src/app/Models/User.model';
+import { AppState } from 'src/app/Ngrx/app.reducers';
+import { setUserName } from 'src/app/Ngrx/GithubInformation/GithubInofrmation.actions';
 import { GithubApiService } from 'src/app/services/GithubApi/github-api.service';
 
 @Component({
@@ -19,7 +23,11 @@ import { GithubApiService } from 'src/app/services/GithubApi/github-api.service'
   styleUrls: ['./search-user.component.css'],
 })
 export class SearchUserComponent implements OnInit {
-  constructor(private _GithubApiServices: GithubApiService) {}
+  constructor(
+    private _GithubApiServices: GithubApiService,
+    private _store: Store<AppState>,
+    private _router: Router
+  ) {}
 
   public user: FormControl;
   public UserInformation: IUserInformation[] = [];
@@ -49,8 +57,10 @@ export class SearchUserComponent implements OnInit {
       .subscribe();
   }
 
-  GotoRepo(repoUrl: string) {
-    console.log(repoUrl);
+  GotoRepo(repoUrl: string, login: string, avatar: string) {
+    const SetUser = new UserInformation(avatar, login, repoUrl);
+    this._store.dispatch(setUserName({ UserGithub: SetUser }));
+    this._router.navigate(['repo']);
   }
 
   ngOnDestroy(): void {
