@@ -19,11 +19,7 @@ export class AppComponent {
   /**
    *
    */
-  constructor(
-    private _githubservices: GithubApiService,
-    private store: Store<AppState>
-  ) {
-    this._githubservices.GetUsersFromGithub().subscribe(console.log);
+  constructor(private store: Store<AppState>) {
     this.Name$ = this.store.select('GI', 'userName');
   }
 

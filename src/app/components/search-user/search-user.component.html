@@ -1,0 +1,47 @@
+<div
+  class="backgroundInput"
+  [ngClass]="{ BackgroundSearchDirty: UserInformation.length > 0 }"
+>
+  <h1 *ngIf="UserInformation.length == 0">
+    <span class="firstWord">Timeline</span>
+    <span class="secondWord"> Github </span>
+  </h1>
+  <img
+    src="./../../../assets/Img/sdsd.svg"
+    class="square"
+    alt="square.svg"
+    *ngIf="UserInformation.length == 0"
+  />
+  <input
+    id="InputSearch"
+    type="text"
+    [formControl]="user"
+    placeholder="Start searching on github.com"
+  />
+</div>
+
+<ng-container *ngIf="UserInformation.length > 0">
+  <div class="container mt-3">
+    <div class="card-columns">
+      <div
+        class="card fadeIn CursorHand text-white bg-secondary"
+        *ngFor="let user of UserInformation"
+        (click)="GotoRepo(user.repos_url)"
+      >
+        <img
+          class="card-img-top"
+          [src]="user.avatar_url"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <img
+            src="./../../../assets/Img/sdsd.svg"
+            width="5%"
+            alt="square.svg"
+          />
+          <h5 class="card-title text-center">{{ user.login | uppercase }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

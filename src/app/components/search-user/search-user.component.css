@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Condensed&display=swap");
+.backgroundInput {
+  background: #040316;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  transition: 0.8s;
+}
+
+h1 {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+}
+h1 > .firstWord {
+  font-family: "Open Sans";
+  color: #07cf79;
+}
+
+h1 > .secondWord {
+  font-family: "Roboto Condensed", sans-serif;
+  color: #f2efefc7;
+}
+
+#InputSearch {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #02010f;
+  border: 1px solid #f4f4f4;
+  color: #f2f2f2;
+  width: 40vw;
+  height: 8vh;
+  font-size: 160%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.BackgroundSearchDirty {
+  width: 100%;
+  height: 10vh;
+  transition: 1s;
+  overflow-x: hidden;
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fadeOut {
+  animation: fadeOut 1s ease-in-out;
+}
+
+.CursorHand {
+  cursor: pointer;
+  background: #040316 !important;
+}
+
+.square {
+  width: calc(100%);
+  height: calc(100%);
+  display: block;
+  left: 50%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
