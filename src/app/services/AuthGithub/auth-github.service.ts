@@ -18,12 +18,10 @@ export class AuthGithubService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     let request: HttpRequest<any> = req;
-    const token= env.environment.token;
-
     request = req.clone({
       
       setHeaders:{
-        Authorization: `Token ${token}`
+        Authorization: `Token ${env.environment.token}`
       }
 
     })

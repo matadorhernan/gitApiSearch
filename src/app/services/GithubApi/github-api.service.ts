@@ -13,6 +13,6 @@ export class GithubApiService {
   constructor(private _http: HttpClient) {}
 
   public GetUsersFromGithub() {
-    return this._http.get(`https://api.github.com/users/${this.username}`);
+    return this._http.get(`https://api.github.com/users/JoseCarlosGlez`);
   }
 }
