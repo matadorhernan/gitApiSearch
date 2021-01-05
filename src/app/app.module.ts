@@ -7,6 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGithubService } from './services/AuthGithub/auth-github.service';
 import { NgrxModule } from './Ngrx/ngrx.module';
 import { ComponentsModule } from './components/components.module';
+import { AppRoutingModule } from './app.routing.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -15,6 +16,7 @@ import { ComponentsModule } from './components/components.module';
     HttpClientModule,
     NgrxModule,
     ComponentsModule,
+    AppRoutingModule
   ],
   providers: [
     {
