@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { IUserInformation } from 'src/app/interfaces/UserInformatio.interface';
-import { setUserName } from './GithubInofrmation.actions';
+import { IUserInformation } from 'src/app/interfaces/UserInformation.interface';
+import { setUserName } from './../Actions/GithubInofrmation.actions';
 
 const initialState: IUserInformation = {
   login: null,

@@ -17,6 +17,7 @@
     type="text"
     [formControl]="user"
     placeholder="Start searching on github.com"
+    autocomplete="off"
   />
 </div>
 
@@ -26,7 +27,7 @@
       <div
         class="card fadeIn CursorHand text-white bg-secondary"
         *ngFor="let user of UserInformation"
-        (click)="GotoRepo(user.repos_url,user.login,user.avatar_url)"
+        (click)="GotoRepo(user.repos_url, user.login, user.avatar_url)"
       >
         <img
           class="card-img-top"

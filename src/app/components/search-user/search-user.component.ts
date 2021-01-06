@@ -11,10 +11,10 @@ import {
   switchMap,
   tap,
 } from 'rxjs/operators';
-import { IUserInformation } from 'src/app/interfaces/UserInformatio.interface';
+import { IUserInformation } from 'src/app/interfaces/UserInformation.interface';
 import { UserInformation } from 'src/app/Models/User.model';
 import { AppState } from 'src/app/Ngrx/app.reducers';
-import { setUserName } from 'src/app/Ngrx/GithubInformation/GithubInofrmation.actions';
+import { setUserName } from 'src/app/Ngrx/Actions/GithubInofrmation.actions';
 import { GithubApiService } from 'src/app/services/GithubApi/github-api.service';
 
 @Component({

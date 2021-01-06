@@ -1,11 +1,11 @@
-import { IUserInformation } from '../interfaces/UserInformatio.interface';
+import { IUserInformation } from '../interfaces/UserInformation.interface';
 
 export class UserInformation implements IUserInformation {
   /**
    *
    */
 
-  static FromGithub({ avatar_url, login, repos_url }) {
+  static FromGithub(avatar_url: string, login: string, repos_url: string) {
     return new UserInformation(avatar_url, login, repos_url);
   }
 
