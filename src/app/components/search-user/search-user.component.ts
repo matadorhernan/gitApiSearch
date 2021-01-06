@@ -47,7 +47,6 @@ export class SearchUserComponent implements OnInit {
             })
           )
         ),
-        tap(console.log),
         map((Users: IUserInformation[]) =>
           Users != undefined
             ? (this.UserInformation = Users)

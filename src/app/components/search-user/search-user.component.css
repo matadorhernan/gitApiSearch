@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Condensed&display=swap");
+
 .backgroundInput {
   background: #040316;
   width: 100%;
@@ -56,10 +55,7 @@ h1 > .secondWord {
   animation: fadeOut 1s ease-in-out;
 }
 
-.CursorHand {
-  cursor: pointer;
-  background: #040316 !important;
-}
+
 
 .square {
   width: calc(100%);

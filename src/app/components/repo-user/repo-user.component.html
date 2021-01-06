@@ -1,1 +1,31 @@
-<p>repo-user works!</p>
+<div class="container">
+  <div class="userBar mt-2">
+    <span class="BgArrowLeft CursorHand"
+      ><i class="fas fa-arrow-left"></i
+    ></span>
+    <img class="rounded-circle"  [src]="user.avatar_url" alt="asdasda" />
+    <span class="userName">{{user.login}}</span>
+  </div>
+
+  <div
+    class="alert alert-danger fadeIn mt-5"
+    *ngIf="reposList?.length == 0"
+    role="alert"
+  >
+    <strong>There are not repositories on this Github</strong>
+  </div>
+
+  <div class="card-columns m fadeIn mt-4" *ngIf="reposList?.length > 0">
+    <div
+      class="card text-white bg-secondary mb-3 CursorHand"
+      style="max-width: 18rem"
+      *ngFor="let repo of reposList"
+    >
+      <div class="card-header">{{ repo.name }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ repo.description | descriptionRepo }}</h5>
+    
+      </div>
+    </div>
+  </div>
+</div>

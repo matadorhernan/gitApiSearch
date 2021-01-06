@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  token:'b52ceb9d3b5fbf9487cde5308a4fd66d0e7cac5a'
+  token:'57221251c7d0789d864ff3917a718402120a91ed'
 };
 
 /*

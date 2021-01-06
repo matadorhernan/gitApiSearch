@@ -2,7 +2,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { EMPTY, Subscription } from 'rxjs';
-import { isEmpty } from 'rxjs/operators';
+import { isEmpty, map, tap } from 'rxjs/operators';
+import { RepoInformation } from 'src/app/Models/Repo.model';
 import { AppState } from 'src/app/Ngrx/app.reducers';
 
 @Injectable({
@@ -22,6 +23,21 @@ export class GithubApiService {
   public GetReposFromGithub(repo_url: string) {
     let newRepoUrl: string[] = repo_url.split('{');
     repo_url = newRepoUrl[0];
-    return this._http.get(repo_url);
+    return this._http.get(repo_url).pipe(
+      map((values: RepoInformation[]) => {
+        let arraysRepos: RepoInformation[] = [];
+        values.forEach((repo) => {
+          arraysRepos.push(
+            RepoInformation.FromGithub(
+              repo.name,
+              repo.description,
+              repo.git_commits_url
+            )
+          );
+        });
+
+        return arraysRepos;
+      })
+    );
   }
 }

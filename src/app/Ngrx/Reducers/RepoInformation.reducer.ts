@@ -1,19 +1,18 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { IRepoInformation } from 'src/app/interfaces/RepoInformation.interface';
-import { setRepoUser } from './../Actions/RepoInformation.actions';
+import { RepoInformation } from 'src/app/Models/Repo.model';
+import {
+  setRepoUser,
+  unsetRepoUser,
+} from './../Actions/RepoInformation.actions';
 
-const initialState: IRepoInformation = {
-  name: null,
-  description: null,
-  git_commits_url: null,
-};
+const initialState: RepoInformation[] = [];
 
 const _RepoInformationReducer = createReducer(
   initialState,
-  on(setRepoUser, (state, { RepoGithub }) => ({ ...state, ...RepoGithub }))
+  on(setRepoUser, (state, { RepoGithub }) => [...state, ...RepoGithub]),
+  on(unsetRepoUser, (state) => (state = []))
 );
 
-export const RepoInformationReducer = (
-  state: IRepoInformation,
-  action: Action
-) => _RepoInformationReducer(state, action);
+export const RepoInformationReducer = (state, action) =>
+  _RepoInformationReducer(state, action);

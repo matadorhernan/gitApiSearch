@@ -20,8 +20,7 @@ export class RepoEffects {
       ofType(setUserName),
       mergeMap(({ UserGithub }) =>
         this._githubServices.GetReposFromGithub(UserGithub.repos_url).pipe(
-          tap(console.log),
-          map((repos: any) => setRepoUser({ RepoGithub: repos }))
+          map((repos: any) => setRepoUser({ RepoGithub: repos })),
         )
       )
     )

@@ -6,7 +6,7 @@ import { RepoInformationReducer } from './Reducers/RepoInformation.reducer';
 
 export interface AppState {
   GI: UserInformation;
-  RI: RepoInformation;
+  RI: RepoInformation[];
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
