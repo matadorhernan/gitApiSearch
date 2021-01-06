@@ -1,1 +1,21 @@
+.Background {
+  position: relative;
+  background: #040316;
+}
 
+.Background .View {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+.Background img {
+  position: absolute;
+  z-index: 1;
+
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  object-fit: contain;
+  object-position: right;
+}

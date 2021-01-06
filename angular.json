@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "DivElementTest"
+  "defaultProject": "DivElementTest",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,51 +1,92 @@
+.SearchWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-.backgroundInput {
-  background: #040316;
-  width: 100%;
+  transition: height 1s;
   height: 100vh;
-  position: relative;
-  transition: 0.8s;
+  overflow: hidden;
 }
 
 h1 {
   display: block;
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  transform: translate(-50%, -50%);
+  font-weight: bold;
 }
+
 h1 > .firstWord {
-  font-family: "Open Sans";
   color: #07cf79;
 }
 
 h1 > .secondWord {
-  font-family: "Roboto Condensed", sans-serif;
   color: #f2efefc7;
 }
 
-#InputSearch {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #02010f;
-  border: 1px solid #f4f4f4;
-  color: #f2f2f2;
-  width: 40vw;
-  height: 8vh;
-  font-size: 160%;
-  text-align: center;
+.InputGroup {
   border-radius: 5px;
+  background: #02010f;
 }
 
-.BackgroundSearchDirty {
-  width: 100%;
-  height: 10vh;
-  transition: 1s;
-  overflow-x: hidden;
+.InputGroup .InputSearch {
+  border: none;
+  background: none;
+
+  color: #f2f2f2;
+  width: 40vw;
+  height: 55px;
+  font-size: 160%;
+  text-align: center;
+
+  outline: none !important;
 }
+
+.InputGroup i {
+  color: #07cf79;
+  margin: 0 15px;
+}
+
+/*When search is dirty*/
+
+.BackgroundSearchDirty.SearchWrapper {
+  height: 220px;
+}
+
+/*Card*/
+
+.card {
+  overflow: hidden;
+}
+
+.card:nth-child(odd) {
+  background: linear-gradient(-45deg, #da22ff, #9932ef);
+}
+
+.card:nth-child(even) {
+  background: #24ec8c;
+}
+
+.card h2 {
+  position: relative;
+  right: -50%;
+  font-size: 130px;
+  -webkit-text-stroke: 1px white;
+  -webkit-text-fill-color: transparent;
+}
+
+.card .UserAvatar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card .UserAvatar img {
+  margin-right: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+/*animations*/
 
 .fadeIn {
   animation: fadeIn 1s ease-in-out;
@@ -54,8 +95,6 @@ h1 > .secondWord {
 .fadeOut {
   animation: fadeOut 1s ease-in-out;
 }
-
-
 
 .square {
   width: calc(100%);

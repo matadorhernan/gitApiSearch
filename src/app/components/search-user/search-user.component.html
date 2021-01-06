@@ -1,46 +1,38 @@
 <div
-  class="backgroundInput"
+  class="SearchWrapper"
   [ngClass]="{ BackgroundSearchDirty: UserInformation.length > 0 }"
 >
-  <h1 *ngIf="UserInformation.length == 0">
+  <h1 class="mb-4">
     <span class="firstWord">Timeline</span>
     <span class="secondWord"> Github </span>
   </h1>
-  <img
-    src="./../../../assets/Img/sdsd.svg"
-    class="square"
-    alt="square.svg"
-    *ngIf="UserInformation.length == 0"
-  />
-  <input
-    id="InputSearch"
-    type="text"
-    [formControl]="user"
-    placeholder="Start searching on github.com"
-    autocomplete="off"
-  />
+  <div class="InputGroup">
+    <input
+      class="InputSearch"
+      type="text"
+      [formControl]="user"
+      placeholder="Start searching on github.com"
+      autocomplete="off"
+    />
+    <i class="fas fa-search"></i>
+  </div>
 </div>
 
 <ng-container *ngIf="UserInformation.length > 0">
   <div class="container mt-3">
     <div class="card-columns">
       <div
-        class="card fadeIn CursorHand text-white bg-secondary"
+        class="card fadeIn CursorHand text-white p-3"
         *ngFor="let user of UserInformation"
         (click)="GotoRepo(user.repos_url, user.login, user.avatar_url)"
       >
-        <img
-          class="card-img-top"
-          [src]="user.avatar_url"
-          alt="Card image cap"
-        />
         <div class="card-body">
-          <img
-            src="./../../../assets/Img/sdsd.svg"
-            width="5%"
-            alt="square.svg"
-          />
-          <h5 class="card-title text-center">{{ user.login | uppercase }}</h5>
+          <h2 class="card-title">{{ user?.login | titlecase | slice: 0:2 }}</h2>
+          <h3>GITHUB USER</h3>
+          <div class="UserAvatar">
+            <img [src]="user.avatar_url" alt="" />
+            <h5 class="card-title">@{{ user.login | lowercase }}</h5>
+          </div>
         </div>
       </div>
     </div>

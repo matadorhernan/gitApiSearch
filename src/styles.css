@@ -1,21 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 .CursorHand {
-    cursor: pointer;
-  }
+  cursor: pointer;
+}
 
+* {
+  font-family: Roboto;
+}
 
-  .fadeIn {
-    animation: fadeIn 1s ease-in-out;
-  }
-  
+.fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
